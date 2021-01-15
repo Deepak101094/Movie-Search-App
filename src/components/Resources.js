@@ -1,6 +1,6 @@
 import React from "react";
 
-function Resources({ resources }) {
+function Resources({ resources, error }) {
   const {
     Title,
     Actors,
@@ -14,7 +14,7 @@ function Resources({ resources }) {
   } = resources;
   return (
     <div>
-      {resources ? (
+      {!error ? (
        <div className="card">
           <img className="card-image" src={Poster} alt={Title + "poster"} />
           <div className="card-content">
@@ -41,7 +41,7 @@ function Resources({ resources }) {
           </div>
         </div>
       ) : (
-        <h3>Search Your Favorite Movies..</h3>
+        <h3>{error}..</h3>
       )}
     </div>
   );

@@ -6,6 +6,7 @@ function MovieSearch() {
   const [searchText, setSearchText] = useState("");
   const [searchMethod, setSearchMethod] = useState("");
   const [resources, setResources] = useState({});
+  const [error,setError] = useState("");
   const [inputError, setInputError] = useState("");
 
   const validate = () => {
@@ -40,6 +41,10 @@ function MovieSearch() {
           .then((res) => {
             // console.log(res.data);
             setResources(res.data);
+          })
+          .catch(err => {
+            setError(err);
+          //console.log(err)
           });
       } else {
         axios
@@ -50,9 +55,13 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            // console.log(res.data);
             setResources(res.data);
+          })
+          .catch(err => {
+            setError(err);
+          // console.log(err.Error);
           });
+
       }
     } else {
       alert("something went wrong!");
@@ -77,7 +86,7 @@ function MovieSearch() {
           value="t"
           onChange={(e) => setSearchMethod(e.target.value)}
         />
-        <p> {inputError} </p>
+        <p style={{color:"red"}}> {inputError} </p>
       </div>
 
       <input
@@ -88,13 +97,13 @@ function MovieSearch() {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <p> {inputError} </p>
+      <p style={{color:"red"}}> {inputError} </p>
 
       <button className="button" onClick={() => clickHandler(searchText)}>
         Search
       </button>
 
-      <Resources resources={resources} />
+      <Resources resources={resources} error={error} />
     </div>
   );
 }
