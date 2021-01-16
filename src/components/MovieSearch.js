@@ -6,8 +6,10 @@ function MovieSearch() {
   const [searchText, setSearchText] = useState("");
   const [searchMethod, setSearchMethod] = useState("");
   const [resources, setResources] = useState({});
-  const [error,setError] = useState("");
+  const [error, setError] = useState("");
   const [inputError, setInputError] = useState("");
+  const [card, setCard] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const validate = () => {
     let method = searchMethod;
@@ -27,6 +29,7 @@ function MovieSearch() {
   };
 
   const clickHandler = (text) => {
+    setLoader(true);
     const token = "114529ed";
     const key = searchMethod;
     if (validate()) {
@@ -42,9 +45,9 @@ function MovieSearch() {
             // console.log(res.data);
             setResources(res.data);
           })
-          .catch(err => {
+          .catch((err) => {
             setError(err);
-          //console.log(err)
+            //console.log(err)
           });
       } else {
         axios
@@ -57,36 +60,40 @@ function MovieSearch() {
           .then((res) => {
             setResources(res.data);
           })
-          .catch(err => {
+          .catch((err) => {
             setError(err);
-          // console.log(err.Error);
+            // console.log(err.Error);
           });
-
       }
     } else {
       alert("something went wrong!");
     }
+
+    setLoader(false);
+    setCard(true);
+    setSearchText("");
   };
 
   return (
     <div className="root">
       <div className="label">
-        <label>Search By Id</label>
         <input
           type="radio"
           name="movie"
           value="i"
           onChange={(e) => setSearchMethod(e.target.value)}
         />
+        <label>Search By Id</label>
 
-        <label>Search By Title </label>
         <input
           type="radio"
           name="movie"
           value="t"
           onChange={(e) => setSearchMethod(e.target.value)}
         />
-        <p style={{color:"red"}}> {inputError} </p>
+        <label>Search By Title </label>
+
+        <p style={{ color: "red" }}> {inputError} </p>
       </div>
 
       <input
@@ -97,13 +104,27 @@ function MovieSearch() {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <p style={{color:"red"}}> {inputError} </p>
+      <p style={{ color: "red" }}> {inputError} </p>
 
-      <button className="button" onClick={() => clickHandler(searchText)}>
-        Search
-      </button>
+      {loader ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <button className="button" onClick={() => clickHandler(searchText)}>
+          Search
+        </button>
+      )}
 
-      <Resources resources={resources} error={error} />
+      {loader ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <>
+          {card ? (
+            <Resources resources={resources} error={error} />
+          ) : (
+            <h2>Search Your fav movie...</h2>
+          )}
+        </>
+      )}
     </div>
   );
 }
