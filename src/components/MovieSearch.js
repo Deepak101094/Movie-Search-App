@@ -44,7 +44,7 @@ function MovieSearch() {
           .then((res) => {
             // console.log(res);
             setResources(res?.data);
-            if(res?.data?.Error) {
+            if (res?.data?.Error) {
               setError("movie not fonnd...!");
               console.log(error);
             }
@@ -59,8 +59,9 @@ function MovieSearch() {
           })
           .then((res) => {
             setResources(res?.data);
-            if(res == false) {
-              setError("movie not found..!")
+            if (res?.data?.Error) {
+              setError("movie not fonnd...!");
+              console.log(error);
             }
           });
       }
@@ -71,6 +72,15 @@ function MovieSearch() {
     setLoader(false);
     setShowCard(true);
     setSearchText("");
+  };
+
+  // when user click on enter button then this function will call..!
+
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      clickHandler();
+    }
   };
 
   return (
@@ -101,6 +111,7 @@ function MovieSearch() {
         name="movieName"
         placeholder="i.e. Jurassic Park"
         value={searchText}
+        onKeyDown={handleKeyDown}
         onChange={(e) => setSearchText(e.target.value)}
       />
       <p style={{ color: "red" }}> {inputError} </p>
