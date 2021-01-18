@@ -45,7 +45,7 @@ function MovieSearch() {
             // console.log(res);
             setResources(res?.data);
             if (res?.data?.Error) {
-              setError("movie not fonnd...!");
+              setError("Movie Not Found...!");
               console.log(error);
             }
           });
@@ -60,7 +60,7 @@ function MovieSearch() {
           .then((res) => {
             setResources(res?.data);
             if (res?.data?.Error) {
-              setError("movie not fonnd...!");
+              setError("Movie Not Found...!");
               console.log(error);
             }
           });
