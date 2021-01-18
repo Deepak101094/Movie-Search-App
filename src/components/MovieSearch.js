@@ -8,7 +8,7 @@ function MovieSearch() {
   const [resources, setResources] = useState({});
   const [error, setError] = useState("");
   const [inputError, setInputError] = useState("");
-  const [card, setCard] = useState(false);
+  const [showCard, setShowCard] = useState(false);
   const [loader, setLoader] = useState(false);
 
   const validate = () => {
@@ -42,12 +42,12 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            // console.log(res.data);
+            // console.log(res);
             setResources(res.data);
-          })
-          .catch((err) => {
-            setError(err);
-            //console.log(err)
+            if(res.data.Error) {
+              setError("movie not fonnd...!");
+              console.log(error);
+            }
           });
       } else {
         axios
@@ -59,10 +59,9 @@ function MovieSearch() {
           })
           .then((res) => {
             setResources(res.data);
-          })
-          .catch((err) => {
-            setError(err);
-            // console.log(err.Error);
+            if(res == false) {
+              setError("movie not found..!")
+            }
           });
       }
     } else {
@@ -70,7 +69,7 @@ function MovieSearch() {
     }
 
     setLoader(false);
-    setCard(true);
+    setShowCard(true);
     setSearchText("");
   };
 
@@ -118,7 +117,7 @@ function MovieSearch() {
         <div className="loader">Loading...</div>
       ) : (
         <>
-          {card ? (
+          {showCard ? (
             <Resources resources={resources} error={error} />
           ) : (
             <h2>Search Your fav movie...</h2>
