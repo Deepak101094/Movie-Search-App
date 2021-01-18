@@ -43,8 +43,8 @@ function MovieSearch() {
           })
           .then((res) => {
             // console.log(res);
-            setResources(res.data);
-            if(res.data.Error) {
+            setResources(res?.data);
+            if(res?.data?.Error) {
               setError("movie not fonnd...!");
               console.log(error);
             }
@@ -58,7 +58,7 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            setResources(res.data);
+            setResources(res?.data);
             if(res == false) {
               setError("movie not found..!")
             }
