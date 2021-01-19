@@ -15,7 +15,7 @@ function Resources({ resources, error }) {
   return (
     <div>
       {!error ? (
-       <div className="card">
+        <div className="card">
           <img className="card-image" src={Poster} alt={Title + "poster"} />
           <div className="card-content">
             <h3 className="card-title"> {Title} </h3>
@@ -41,7 +41,7 @@ function Resources({ resources, error }) {
           </div>
         </div>
       ) : (
-        <h3>{error}..</h3>
+        <h2 style={{ color: "red", textAlign: "center" }}>{error}..</h2>
       )}
     </div>
   );

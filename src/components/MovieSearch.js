@@ -8,18 +8,13 @@ function MovieSearch() {
   const [resources, setResources] = useState({});
   const [error, setError] = useState("");
   const [inputError, setInputError] = useState("");
-  const [card, setCard] = useState(false);
+  const [showCard, setShowCard] = useState(false);
   const [loader, setLoader] = useState(false);
 
   const validate = () => {
-    let method = searchMethod;
     let text = searchText;
     let isValid = true;
     let errors = "";
-    if (!method) {
-      isValid = false;
-      errors = "pls select any searchMethod";
-    }
     if (!text) {
       isValid = false;
       errors = "pls search your fav movie";
@@ -42,12 +37,12 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            // console.log(res.data);
-            setResources(res.data);
-          })
-          .catch((err) => {
-            setError(err);
-            //console.log(err)
+            // console.log(res);
+            setResources(res?.data);
+            if (res?.data?.Error) {
+              setError("Movie Not Found...!");
+              console.log(error);
+            }
           });
       } else {
         axios
@@ -58,11 +53,11 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            setResources(res.data);
-          })
-          .catch((err) => {
-            setError(err);
-            // console.log(err.Error);
+            setResources(res?.data);
+            if (res?.data?.Error) {
+              setError("Movie Not Found...!");
+              console.log(error);
+            }
           });
       }
     } else {
@@ -70,8 +65,17 @@ function MovieSearch() {
     }
 
     setLoader(false);
-    setCard(true);
+    setShowCard(true);
     setSearchText("");
+  };
+
+  // when user click on enter button then this function will call..!
+
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      clickHandler();
+    }
   };
 
   return (
@@ -80,20 +84,18 @@ function MovieSearch() {
         <input
           type="radio"
           name="movie"
+          value="t"
+          defaultChecked
+          onChange={(e) => setSearchMethod(e.target.value)}
+        />
+        <label>Search By Title </label>
+        <input
+          type="radio"
+          name="movie"
           value="i"
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Id</label>
-
-        <input
-          type="radio"
-          name="movie"
-          value="t"
-          onChange={(e) => setSearchMethod(e.target.value)}
-        />
-        <label>Search By Title </label>
-
-        <p style={{ color: "red" }}> {inputError} </p>
       </div>
 
       <input
@@ -102,6 +104,7 @@ function MovieSearch() {
         name="movieName"
         placeholder="i.e. Jurassic Park"
         value={searchText}
+        onKeyDown={handleKeyDown}
         onChange={(e) => setSearchText(e.target.value)}
       />
       <p style={{ color: "red" }}> {inputError} </p>
@@ -118,7 +121,7 @@ function MovieSearch() {
         <div className="loader">Loading...</div>
       ) : (
         <>
-          {card ? (
+          {showCard ? (
             <Resources resources={resources} error={error} />
           ) : (
             <h2>Search Your fav movie...</h2>
