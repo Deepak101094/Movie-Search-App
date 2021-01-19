@@ -55,7 +55,7 @@ small {
 }
 .card {
   margin-top: 4rem;
-  padding: 2rem 6rem;
+  padding: 2rem 4rem;
   box-shadow: 1px 1px 5px rgb(0,0,0,0.25);
   margin-bottom: 2rem;
   background-color: white;
@@ -66,8 +66,10 @@ small {
   font-size: 3.2rem;
 }
 .card-image {
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
+  margin: 0 auto;
+  /* display: block; */
  
 }
 .card-description {

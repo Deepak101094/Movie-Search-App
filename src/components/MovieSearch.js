@@ -12,14 +12,9 @@ function MovieSearch() {
   const [loader, setLoader] = useState(false);
 
   const validate = () => {
-    let method = searchMethod;
     let text = searchText;
     let isValid = true;
     let errors = "";
-    if (!method) {
-      isValid = false;
-      errors = "pls select any searchMethod";
-    }
     if (!text) {
       isValid = false;
       errors = "pls search your fav movie";
@@ -89,20 +84,18 @@ function MovieSearch() {
         <input
           type="radio"
           name="movie"
+          value="t"
+          defaultChecked
+          onChange={(e) => setSearchMethod(e.target.value)}
+        />
+        <label>Search By Title </label>
+        <input
+          type="radio"
+          name="movie"
           value="i"
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Id</label>
-
-        <input
-          type="radio"
-          name="movie"
-          value="t"
-          onChange={(e) => setSearchMethod(e.target.value)}
-        />
-        <label>Search By Title </label>
-
-        <p style={{ color: "red" }}> {inputError} </p>
       </div>
 
       <input
