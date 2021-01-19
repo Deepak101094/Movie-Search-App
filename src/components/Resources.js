@@ -1,4 +1,6 @@
 import React from "react";
+import ReactImageFallback from "react-image-fallback";
+import DefaultImg from "../imdblogo.webp";
 
 function Resources({ resources, error }) {
   const {
@@ -16,7 +18,21 @@ function Resources({ resources, error }) {
     <div>
       {!error ? (
         <div className="card">
-          <img className="card-image" src={Poster} alt={Title + "poster"} />
+          {/* <img
+            className="card-image"
+            src={Poster}
+            alt={Title + "poster"}
+            onError={(e) => (
+              (e.target.onerror = null), (e.target.src = {DefaultImg})
+            )}
+          /> */}
+          <ReactImageFallback
+            src={Poster}
+            fallbackImage={DefaultImg}
+            initialImage="loader.gif"
+            alt="cool image should be here"
+            className="my-image"
+          />
           <div className="card-content">
             <h3 className="card-title"> {Title} </h3>
             <p>
