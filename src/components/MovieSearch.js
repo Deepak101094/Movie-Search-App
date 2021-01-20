@@ -6,7 +6,7 @@ function MovieSearch() {
   const [searchText, setSearchText] = useState("");
   const [searchMethod, setSearchMethod] = useState("");
   const [resources, setResources] = useState({});
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   const [inputError, setInputError] = useState("");
   const [showCard, setShowCard] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -28,23 +28,7 @@ function MovieSearch() {
     const token = "114529ed";
     const key = searchMethod;
     if (validate()) {
-      if (key === "i") {
-        axios
-          .get("http://www.omdbapi.com", {
-            params: {
-              apikey: token,
-              i: text,
-            },
-          })
-          .then((res) => {
-            // console.log(res);
-            setResources(res?.data);
-            if (res?.data?.Error) {
-              setError("Movie Not Found...!");
-              console.log(error);
-            }
-          });
-      } else {
+      if (key === "t") {
         axios
           .get("http://www.omdbapi.com", {
             params: {
@@ -53,9 +37,26 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            setResources(res?.data);
-            if (res?.data?.Error) {
-              setError("Movie Not Found...!");
+            // console.log(res);
+            setResources(res?.data ?? {});
+            // if (res.status === 200) {
+            //   setError(true);
+            //   console.log(error);
+            // }
+          });
+      } else {
+        axios
+          .get("http://www.omdbapi.com", {
+            params: {
+              apikey: token,
+              i: text,
+            },
+          })
+          .then((res) => {
+            setResources(res?.data ?? {});
+            if (res.status === 200) {
+              console.log(res.data)
+              setError(true);
               console.log(error);
             }
           });
@@ -64,8 +65,11 @@ function MovieSearch() {
       alert("something went wrong!");
     }
 
-    setLoader(false);
-    setShowCard(true);
+    setTimeout(() => {
+      setLoader(false);
+      setShowCard(true);
+    },2000)
+  
     setSearchText("");
   };
 
@@ -78,12 +82,26 @@ function MovieSearch() {
     }
   };
 
+  const renderComponent = () => {
+    if (loader) {
+      return <div className="loader">loading.. </div>;
+    }
+    if (showCard) {
+     return <Resources resources={resources} />;
+    }
+    if (error) {
+      return <h2>Movie does not Exist..</h2>;
+    } else {
+      return <h2>search your fav movie</h2>;
+    }
+  };
+
   return (
     <div className="root">
       <div className="label">
         <input
           type="radio"
-          name="title"
+         // name="title"
           value="t"
           checked={searchMethod === "t"}
           //defaultChecked
@@ -92,7 +110,7 @@ function MovieSearch() {
         <label>Search By Title </label>
         <input
           type="radio"
-          name="id"
+         // name="id"
           value="i"
           checked={searchMethod === "i"}
           onChange={(e) => setSearchMethod(e.target.value)}
@@ -118,7 +136,7 @@ function MovieSearch() {
           Search
         </button>
       )}
-
+      {/* 
       {loader ? (
         <div className="loader">Loading...</div>
       ) : (
@@ -129,7 +147,9 @@ function MovieSearch() {
             <h2>Search Your fav movie...</h2>
           )}
         </>
-      )}
+      )} */}
+
+      {renderComponent()}
     </div>
   );
 }
