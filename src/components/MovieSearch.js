@@ -28,7 +28,7 @@ function MovieSearch() {
     const token = "114529ed";
     const key = searchMethod;
     if (validate()) {
-      if (key == "i") {
+      if (key === "i") {
         axios
           .get("http://www.omdbapi.com", {
             params: {
@@ -83,16 +83,18 @@ function MovieSearch() {
       <div className="label">
         <input
           type="radio"
-          name="movie"
+          name="title"
           value="t"
-          defaultChecked
+          checked={searchMethod === "t"}
+          //defaultChecked
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Title </label>
         <input
           type="radio"
-          name="movie"
+          name="id"
           value="i"
+          checked={searchMethod === "i"}
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Id</label>
