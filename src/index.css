@@ -3,7 +3,135 @@ html {
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+/* Navbar */
+
+nav {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background-color: #121212;
+  justify-content: space-between;
+  text-align: center;
+  padding: 4px;
+  min-height: 3.5rem;
+  z-index: 1000;
+  -webkit-box-align: center;
+}
+nav .navbar-inner {
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100vw;
+    margin: 0px;
+}
+
+nav .leftBar {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  padding: 4px 12px;
+  text-align: center;
+  align-items: center;
+  margin: 0 10px
+}
+nav .logo {
+  font-size: 25px;
+  font-weight: 700;
+  color: #000000;
+  border: 1px solid rgb(0,0,0,0.75);
+  border-radius: 10px;
+  padding: 8px;
+  margin: 0 4px;
+  background-color: #f5c518;
+}
+
+nav .menuIcon {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+    padding: .75rem;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid rgb(0,0,0,0.75);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 250ms;
+}
+nav .menuIcon:hover {
+  background-color: darkgray;
+}
+
+nav ol {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  text-align: center;
+  text-align: center;
+}
+nav ol li {
+  margin: 0 2px;
+  
+}
+nav ol li a {
+  color: #fff;
+  font-size: 15px;
+  font-size: 800;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border: 1px solid rgb(0,0,0,0.75);
+  border-radius: 5px;
+}
+nav ol li:hover a {
+background-color: darkgray;
+}
+
+nav .searchBox {
+  display: flex;
+  margin: auto 0;
+  height: 35px;
+  line-height: 35px;
+}
+nav .searchBox input {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 20px;
+  width: 700px;
+}
+
+nav .searchBox span {
+  color: #f5c518;
+  font-size: 20px;
+  background-color: #fff;
+  height: 100%;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+nav .searchBox span::after {
+  height: 100%;
+  width: 0%;
+  content: '';
+  background: #fff;
+  position:absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+/* body */
 body {
   margin: 0;
   padding: 0;
@@ -18,7 +146,7 @@ small {
 }
 .container  {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 100%;
   padding: 40px;
 }
 .title {
