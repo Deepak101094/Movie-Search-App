@@ -6,6 +6,7 @@ function MovieSearch() {
   const [searchText, setSearchText] = useState("");
   const [searchMethod, setSearchMethod] = useState("");
   const [resources, setResources] = useState({});
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [inputError, setInputError] = useState("");
   const [showCard, setShowCard] = useState(false);
@@ -25,26 +26,11 @@ function MovieSearch() {
 
   const clickHandler = (text) => {
     setLoader(true);
+    setShowCard(false);
     const token = "114529ed";
     const key = searchMethod;
     if (validate()) {
-      if (key == "i") {
-        axios
-          .get("http://www.omdbapi.com", {
-            params: {
-              apikey: token,
-              i: text,
-            },
-          })
-          .then((res) => {
-            // console.log(res);
-            setResources(res?.data);
-            if (res?.data?.Error) {
-              setError("Movie Not Found...!");
-              console.log(error);
-            }
-          });
-      } else {
+      if (key === "t") {
         axios
           .get("http://www.omdbapi.com", {
             params: {
@@ -53,10 +39,29 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            setResources(res?.data);
-            if (res?.data?.Error) {
-              setError("Movie Not Found...!");
-              console.log(error);
+            // console.log(res);
+            setResources(res?.data ?? {});
+
+            if (res.status === 200) {
+              setSuccess(true);
+              setError("movie not found..");
+              //  console.log(error);
+            }
+          });
+      } else {
+        axios
+          .get("http://www.omdbapi.com", {
+            params: {
+              apikey: token,
+              i: text,
+            },
+          })
+          .then((res) => {
+            setResources(res?.data ?? {});
+            if (res.status === 200) {
+              setSuccess(false);
+              setError("Movie Not Found..");
+              //  console.log(error);
             }
           });
       }
@@ -64,35 +69,42 @@ function MovieSearch() {
       alert("something went wrong!");
     }
 
-    setLoader(false);
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
     setShowCard(true);
+
     setSearchText("");
   };
 
   // when user click on enter button then this function will call..!
 
   const handleKeyDown = (event) => {
+    event.preventDefault();
+
     if (event.keyCode === 13) {
-      event.preventDefault();
-      clickHandler();
+      clickHandler(searchText);
     }
   };
+
 
   return (
     <div className="root">
       <div className="label">
         <input
           type="radio"
-          name="movie"
+           name="title"
           value="t"
-          defaultChecked
+          checked={searchMethod === "t"}
+          //defaultChecked
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Title </label>
         <input
           type="radio"
-          name="movie"
+           name="id"
           value="i"
+          checked={searchMethod === "i"}
           onChange={(e) => setSearchMethod(e.target.value)}
         />
         <label>Search By Id</label>
@@ -118,13 +130,20 @@ function MovieSearch() {
       )}
 
       {loader ? (
-        <div className="loader">Loading...</div>
+        <div className="loader">Loading</div>
       ) : (
         <>
           {showCard ? (
-            <Resources resources={resources} error={error} />
+            <div>
+              {" "}
+              {success ? (
+                <Resources resources={resources} />
+              ) : (
+                <h2> {error} </h2>
+              )}{" "}
+            </div>
           ) : (
-            <h2>Search Your fav movie...</h2>
+            <h2> search your movie </h2>
           )}
         </>
       )}
