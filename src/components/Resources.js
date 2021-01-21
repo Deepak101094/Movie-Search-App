@@ -18,14 +18,6 @@ function Resources({ resources }) {
     <div>
   
       <div className="card">
-      {/* <img
-      className="card-image"
-      src={Poster}
-      alt={Title + "poster"}
-      onError={(e) => (
-        (e.target.onerror = null), (e.target.src = {DefaultImg})
-      )}
-    /> */}
       <ReactImageFallback
         src={Poster}
         fallbackImage={DefaultImg}

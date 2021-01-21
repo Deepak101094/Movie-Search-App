@@ -60,7 +60,7 @@ function MovieSearch() {
             setResources(res?.data ?? {});
             if (res.status === 200) {
               setSuccess(false);
-              setError("movie not found..");
+              setError("Movie Not Found..");
               //  console.log(error);
             }
           });
@@ -74,14 +74,15 @@ function MovieSearch() {
     }, 2000);
     setShowCard(true);
 
-    //setSearchText("");
+    setSearchText("");
   };
 
   // when user click on enter button then this function will call..!
 
   const handleKeyDown = (event) => {
+    event.preventDefault();
+
     if (event.keyCode === 13) {
-      event.preventDefault();
       clickHandler(searchText);
     }
   };
