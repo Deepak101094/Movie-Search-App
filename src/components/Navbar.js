@@ -17,7 +17,7 @@ function Navbar() {
           </div>
 
           <div className="searchBox">
-            <input type="search" placeholder="search here" />
+            <input type="text" placeholder="search here" />
             <span>
               <ion-icon name="search-outline"></ion-icon>
             </span>
