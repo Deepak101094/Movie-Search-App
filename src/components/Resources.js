@@ -15,8 +15,7 @@ function Resources({ resources }) {
     imdbRating,
   } = resources;
   return (
-    <div>
-  
+    <div className="container">
       <div className="card">
       <ReactImageFallback
         src={Poster}
