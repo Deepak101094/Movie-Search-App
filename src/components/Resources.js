@@ -16,6 +16,33 @@ function Resources({ resources }) {
   } = resources;
   return (
     <div className="container">
+       <div className="card-top">
+         <nav>
+         <a href="#">FULLCAST AND GREW</a>
+          <a href="#">TRIVIA </a>
+          <a href="#">USER REVIEW</a>
+          <a href="#">IDMBM</a>
+          <a href="#">MORE</a>
+          <div style={{marginLeft: "6rem",marginRight:"3rem"}}>
+          <a href="#">SHARE</a>
+          </div>
+         </nav>
+         <div className="card-inner-div1">
+           <nav>
+           <ion-icon name="add-outline" style= {{fontSize: "30px"}} />
+          <h1 style={{fontSize: "40px",fontFamily: "serif"}}>Cloud Atlas (2021) </h1>
+           </nav>
+           <div style={{display:'flex',justifyContent: "space-between",marginLeft:"60px", padding:0}}>
+           <p>R</p>
+           <p>2h 52min</p>
+           <p>Action ,Drama,Mystery</p>
+           <p>26 october 2012 USA</p>
+           </div>       
+           <div>
+         
+           </div>
+          </div>
+        </div>
       <div className="card">
       <ReactImageFallback
         src={Poster}
@@ -25,7 +52,7 @@ function Resources({ resources }) {
         className="my-image"
       />
       <div className="card-content">
-        <h3 className="card-title"> {Title} </h3>
+        <p className="card-description"> {Plot} </p>
         <p>
           <small>Release Date: {Released} </small>
         </p>
@@ -44,7 +71,6 @@ function Resources({ resources }) {
         <p>
           <small>Awards:{Awards} </small>
         </p>
-        <p className="card-description"> {Plot} </p>
       </div>
     </div>
     
