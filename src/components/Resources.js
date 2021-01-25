@@ -36,7 +36,12 @@ function Resources({ resources }) {
             <h1>
               {Title} ({Year}){" "}
             </h1>
-        <div className="rating"><ion-icon name="star-outline"></ion-icon> <p>{imdbRating}</p>  </div>
+            <div className="rating">
+              <ion-icon name="star-outline"></ion-icon> <p>{imdbRating}</p>{" "}
+            </div>
+            <div className="star-icon">
+            <ion-icon name="star-outline"></ion-icon>  <small>Rate this</small>
+            </div>
 
           </nav>
           <div className="details">
