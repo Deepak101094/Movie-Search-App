@@ -21,9 +21,9 @@ function Resources({ resources }) {
          <a href="#">FULLCAST AND GREW</a>
           <a href="#">TRIVIA </a>
           <a href="#">USER REVIEW</a>
-          <a href="#">IDMBM</a>
+          <a href="#">IDMbpro</a>
           <a href="#">MORE</a>
-          <div style={{marginLeft: "6rem",marginRight:"3rem"}}>
+          <div className="share-button">
           <a href="#">SHARE</a>
           </div>
          </nav>

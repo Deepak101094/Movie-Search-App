@@ -241,6 +241,10 @@ small {
   margin: 0;
   padding: 0;
 } 
+.share-button {
+  margin-left: 6rem;
+  margin-right: 3rem;
+}
 .card-inner-div1 nav {
   display: flex;
   justify-content: space-between;
