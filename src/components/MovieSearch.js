@@ -81,8 +81,6 @@ function MovieSearch() {
   // when user click on enter button then this function will call..!
 
   const handleKeyDown = (event) => {
-    event.preventDefault();
-
     if (event.keyCode === 13) {
       clickHandler(searchText);
     }
@@ -109,9 +107,9 @@ function MovieSearch() {
                 type="text"
                 name="movieName"
                 placeholder="Search IDBM"
-                // value={searchText}
-                // onKeyDown={handleKeyDown}
-                // onChange={(e) => setSearchText(e.target.value)}
+                value={searchText}
+                onKeyDown={handleKeyDown}
+                onChange={(e) => setSearchText(e.target.value)}
               />
               <span>
                 <ion-icon
@@ -144,8 +142,12 @@ function MovieSearch() {
         </div>
       </div>
       <div className="poster">
-            <img src={Poster} alt="poster" style= {{width:"100%",height:"300px"}} />
-          </div>
+        <img
+          src={Poster}
+          alt="poster"
+          style={{ width: "100%", height: "300px" }}
+        />
+      </div>
 
       <div>
         <div className="label">
@@ -154,7 +156,7 @@ function MovieSearch() {
             name="title"
             value="t"
             checked={searchMethod === "t"}
-            //defaultChecked
+            defaultChecked
             onChange={(e) => setSearchMethod(e.target.value)}
           />
           <label>Search By Title </label>
@@ -174,8 +176,8 @@ function MovieSearch() {
           name="movieName"
           placeholder="i.e. Jurassic Park"
           value={searchText}
-          onKeyDown={handleKeyDown}
           onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <p style={{ color: "red" }}> {inputError} </p>
 
