@@ -1,6 +1,7 @@
 import React from "react";
 import ReactImageFallback from "react-image-fallback";
 import DefaultImg from "../imdblogo.webp";
+import "./Resources.css";
 
 function Resources({ resources }) {
   const {

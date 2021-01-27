@@ -1,0 +1,97 @@
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 10px;
+  }
+.card-top {
+    min-height: 8rem;
+    margin: 0rem 12rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #333;
+    color: #000000;
+  }
+  .card-top nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 100;
+    background: #333;
+  
+  }
+  .card-top nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .card-top nav a:hover {
+    text-decoration: underline;
+    color: #00ffff;
+  }
+  .card-inner-div1 {
+    /* display: flex;
+    justify-content: space-between; */
+    /* width: 300px */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  } 
+  .share-button {
+    margin-left: 6rem;
+    margin-right: 3rem;
+  }
+  .rating {
+    display: flex;
+    justify-content: space-between;
+    margin-left:  8rem;
+    font-size: 40px;
+    color:#f5c518; 
+  }
+  .star-icon {
+    margin-left: 10rem;
+    font-size: 30px;
+  }
+  .card-inner-div1 nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-inner-div1 p {
+    font-size: 15px;
+  }
+  .card-inner-div1 h1 {
+    font-size: 40px;
+    font-family: serif;
+  }
+  .details {
+    display:flex;
+    margin-left: 60px;
+    padding: 0;
+  }
+  .card {
+    margin: 0rem 12rem;
+    /* padding: 2rem 4rem; */
+    box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.25);
+    margin-bottom: 2rem;
+    background-color: white;
+  
+  }
+  .my-image {
+     width: 100%; 
+    height: 400px; 
+    /* margin: 0 auto;
+    display: block; */
+  }
+  .card-content {
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 2rem 4rem;
+  }
+  .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 3.2rem;
+  }
+  
+  .card-description {
+    font-size: 15px;
+  }
