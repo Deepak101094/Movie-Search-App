@@ -19,44 +19,57 @@ function Resources({ resources }) {
   } = resources;
   return (
     <div className="container">
-      <div className="card-top">
-        <nav>
-          <a href="#">FULLCAST AND GREW</a>
-          <a href="#">TRIVIA </a>
-          <a href="#">USER REVIEW</a>
-          <a href="#">IDMbpro</a>
-          <a href="#">MORE</a>
-          <div className="share-button">
-            <a href="#">SHARE</a>
-          </div>
-        </nav>
-
-        <div className="card-inner-div1">
-          <nav>
-            <ion-icon name="add-outline" style={{ fontSize: "30px" }} />
-            <h1>
-              {Title} ({Year}){" "}
-            </h1>
-            <div className="rating">
-              <ion-icon name="star-outline"></ion-icon> <p>{imdbRating}</p>{" "}
-            </div>
-            <div className="star-icon">
-            <ion-icon name="star-outline"></ion-icon>  <small>Rate this</small>
-            </div>
-
-          </nav>
-          <div className="details">
-            <p>R |</p>
-            <p>2h 52min |</p>
-            <p> {Genre} |</p>
-            <p>
-              {Released} {Country}{" "}
-            </p>
-          </div>
-          <div></div>
-        </div>
-      </div>
       <div className="card">
+        <div className="top-section">
+          <div className="sub-nav">
+            <div className="left">
+              <a href="#">FULLCAST AND GREW </a>
+              <span>|</span>
+              <a href="#"> TRIVIA</a>
+              <span>|</span>
+
+              <a href="#">USER REVIEWS </a>
+              <span>|</span>
+
+              <a href="#">IMDbpro </a>
+              <span>|</span>
+
+              <span className="show_more">MORE</span>
+            </div>
+            <span className="right">
+              <div className="share">
+                  <span>
+                   SHARE
+                  </span>
+                </div>
+                </span>
+          </div>
+          <div className="title-block">
+           <div className="title-wrapper">
+            <div className="rating-wrapper">
+              <div className="rating-icon">
+              <ion-icon name="star-outline"></ion-icon>
+              <span>425,645</span>
+              </div>
+              <div className="rating-value">
+                <strong className="user-rating">
+                7.4
+                </strong>
+                <span>/</span>
+                <span>10</span>
+              </div>
+            <div className="star-icon">
+              <div className="rating">
+              <span className="add-star">
+              <ion-icon name="star-outline"></ion-icon>
+              </span>
+              <span>Rate this</span>
+              </div>
+            </div>
+            </div>
+           </div>
+          </div>
+        </div>
         <ReactImageFallback
           src={Poster}
           fallbackImage={DefaultImg}
