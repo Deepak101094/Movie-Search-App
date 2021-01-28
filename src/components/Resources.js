@@ -16,6 +16,7 @@ function Resources({ resources }) {
     Genre,
     Year,
     Country,
+    imdbVotes,
   } = resources;
   return (
     <div className="container">
@@ -38,66 +39,61 @@ function Resources({ resources }) {
             </div>
             <span className="right">
               <div className="share">
-                  <span>
-                   SHARE
-                  </span>
-                </div>
-                </span>
+                <span>SHARE</span>
+              </div>
+            </span>
           </div>
           <div className="title-block">
-           <div className="title-wrapper">
-            <div className="rating-wrapper">
-              <div className="rating-icon">
-              <ion-icon name="star-outline"></ion-icon>
-              <span>425,645</span>
+            <div className="title-wrapper">
+              <div className="rating-wrapper">
+                <div className="rating-icon">
+                  <ion-icon name="star-outline"></ion-icon>
+                  <span> {imdbVotes}</span>
+                </div>
+                <div className="rating-value">
+                  <strong className="user-rating">{imdbRating}</strong>
+                  <span>/</span>
+                  <span>10</span>
+                </div>
+                <div className="star-icon">
+                  <div className="rating">
+                    <span className="add-star">
+                      <ion-icon name="star-outline"></ion-icon>
+                    </span>
+                    <span>Rate this</span>
+                  </div>
+                </div>
               </div>
-              <div className="rating-value">
-                <strong className="user-rating">
-                7.4
-                </strong>
-                <span>/</span>
-                <span>10</span>
-              </div>
-            <div className="star-icon">
-              <div className="rating">
-              <span className="add-star">
-              <ion-icon name="star-outline"></ion-icon>
-              </span>
-              <span>Rate this</span>
+
+              <div className="title-bar">
+                <div className="title">
+                  <div className="add-icon">
+                    <ion-icon name="add-outline"></ion-icon>
+                  </div>
+                </div>
+                <div className="title-wrap">
+                  <h1>
+                    {" "}
+                    {Title}
+                    <span className="title-year">({Year})</span>
+                  </h1>
+                  <div className="sub-title-text">
+                    R<span>|</span>
+                    <time> 2h 52min </time>
+                    <span>|</span>
+                    <a href="#"> {Genre} </a>,
+                    {/* <a href="#">Drama</a>
+                    ,
+                    <a href="#">Comedy</a> */}
+                    <span>|</span>
+                    <a href="#">
+                      {" "}
+                      {Released} ({Country})
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-           
-           <div className="title-bar">
-             <div className="title">
-               <div className="add-icon">
-               <ion-icon name="add-outline"></ion-icon>
-               </div>
-             </div>
-             <div className="title-wrap">
-               <h1>Cloud Atlas
-                  <span className="title-year">
-                    (2012)
-                 </span> 
-                 </h1>
-                 <div className="sub-title-text">
-                    
-                           R
-                    
-                    <span>|</span>
-                    <time>    2h 52min </time>
-                    <span>|</span>
-                    <a href="#">Action</a>
-                    ,
-                    <a href="#">Drama</a>
-                    ,
-                    <a href="#">Comedy</a>
-                    <span>|</span>
-                    <a href="#">26 october 2012 (USA)</a>
-                 </div>
-             </div>
-           </div>
-           </div>
           </div>
         </div>
         <ReactImageFallback
@@ -121,6 +117,62 @@ function Resources({ resources }) {
             <b>Actors:</b>
             <small>{Actors} </small>
           </p>
+        </div>
+        <div className="bottom-section">
+          <button className="button">
+            <ion-icon name="add-outline"></ion-icon>
+            Add to WatchList
+          </button>
+        </div>
+        <div className="titleReview_bar">
+          <div className="titleReviewBarItem">
+            {/* <div className="titleReviewSubItem">
+            <a href="#">
+              <div className="score">
+                <span>55</span>
+              </div>
+            </a>
+            <div className="sub_item">
+              <a href="#">MetaScore</a> 
+              <span className="subtext">
+                <a href="#">From metacritic.com</a>{" "}
+              </span>
+              </div>
+              </div> */}
+              <span className="score">55</span>
+
+            <div className="reviews">
+              <div>MetaScore</div>
+              <div>
+                <span className="subtext">
+                  <a href="#">from metacritim.com</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="divider"></div>
+          <div className="reviews">
+            <div>Reviews</div>
+            <div>
+              <span className="subtext">
+                <a href="#">10007 user</a>
+                <span>|</span>
+                <a href="#">523 critis</a>
+              </span>
+            </div>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="reviews">
+            <div>Popularity</div>
+            <div>
+              <span className="subtext">
+                <a href="#">10007 (19)</a>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
