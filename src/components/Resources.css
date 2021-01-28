@@ -68,15 +68,12 @@
 .title-wrapper {
   display: block;
 }
-.title-bar {
-    padding: 0 20px;
-}
 
 .rating-wrapper {
   float: right;
     position: relative;
     margin-left: 5px;
-    /* width: 185px; */
+    width: 195px;
     z-index: 2;
     display: flex;
 }
@@ -118,21 +115,81 @@
 .rating {
   height: 42px;
     width: 91px;
-  
+}
+.rating:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
 }
 .rating span {
   color: #ffffff;
 }
 .add-star {
   float: left;
-  font-size: 20px;
+   font-size: 20px;
     width: 40px;
     height: 40px;
     margin-right: 1px;
     color: silver;
-    margin-left: 20px;
-    margin-bottom: -20px;
+    margin-left: 10px;
    
+}
+.title-bar {
+  position: relative;
+    padding: 0 20px;
+}
+.title {
+  position: absolute;
+    height: 58px;
+    width: 40px;
+    padding-right: 5px;
+}
+.add-icon {
+    left: 0;
+    top: 58px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid grey;
+    background-color:grey;
+    padding-right:4px 5px;
+}
+.add-icon:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+.title-wrap {
+  min-height: 58px;
+  margin-left: 52px;
+}
+.title-wrap h1 {
+  font: 36px Arial,sans-serif;
+    font-weight: normal;
+    line-height: 110%;
+    margin: 0px;
+    color: #fff;
+    padding-bottom: 3px;
+}
+.title-year {
+  color: silver;
+    font-family: Arial;
+    font-size: 25px;
+    line-height: 100%;
+}
+.sub-title-text {
+  font-size: 11px;
+    color: silver;
+}
+.sub-title-text span {
+  margin: 0 .5em;
+    color: #6b6b6b;
+}
+.sub-title-text a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.sub-title-text a:hover {
+  color: #136cb2;
+  text-decoration: underline;
 }
 /* poster */
   .my-image {

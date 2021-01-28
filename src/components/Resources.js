@@ -67,6 +67,36 @@ function Resources({ resources }) {
               </div>
             </div>
             </div>
+           
+           <div className="title-bar">
+             <div className="title">
+               <div className="add-icon">
+               <ion-icon name="add-outline"></ion-icon>
+               </div>
+             </div>
+             <div className="title-wrap">
+               <h1>Cloud Atlas
+                  <span className="title-year">
+                    (2012)
+                 </span> 
+                 </h1>
+                 <div className="sub-title-text">
+                    
+                           R
+                    
+                    <span>|</span>
+                    <time>    2h 52min </time>
+                    <span>|</span>
+                    <a href="#">Action</a>
+                    ,
+                    <a href="#">Drama</a>
+                    ,
+                    <a href="#">Comedy</a>
+                    <span>|</span>
+                    <a href="#">26 october 2012 (USA)</a>
+                 </div>
+             </div>
+           </div>
            </div>
           </div>
         </div>
