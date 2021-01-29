@@ -1,0 +1,35 @@
+.card-content {
+    padding: 18px 20px;
+  }
+  .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 3.2rem;
+  }
+  
+  .card-description {
+    font-size: 15px;
+  }
+  .bottom-section {
+    display:inline-block;
+    position: relative;
+  }
+  .button {
+    background: #2a84e4;
+    color: #fff;
+    border: 1px solid rgb(0,0,0,0.75);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+    margin: 0 20px 18px;
+    min-height: 3rem;
+    min-width: 360px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0px 10px;
+  }
+ .button:hover {
+   background-color:#094d96 ;
+ }

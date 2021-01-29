@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+
 function Navbar2() {
   return (
     <div className="top-div">
