@@ -34,7 +34,7 @@ function MovieSearch() {
     if (validate()) {
       if (key === "t") {
         axios
-          .get("http://www.omdbapi.com", {
+          .get("https://www.omdbapi.com", {
             params: {
               apikey: token,
               t: text,
@@ -50,7 +50,7 @@ function MovieSearch() {
           });
       } else {
         axios
-          .get("http://www.omdbapi.com", {
+          .get("https://www.omdbapi.com", {
             params: {
               apikey: token,
               i: text,
