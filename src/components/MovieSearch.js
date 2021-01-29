@@ -20,7 +20,7 @@ function MovieSearch() {
     let errors = "";
     if (!text) {
       isValid = false;
-      errors = "pls search your fav movie";
+      errors = "Please enter search text";
     }
     setInputError(errors);
     return isValid;
@@ -76,7 +76,7 @@ function MovieSearch() {
     setSearchText("");
   };
 
-  // when user click on enter button then this function will call..!
+  // this function will be called whenever user click on the enter
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       clickHandler(searchText);
@@ -111,7 +111,7 @@ function MovieSearch() {
               )}{" "}
             </div>
           ) : (
-            <h2> search your movie </h2>
+            null
           )}
         </>
       )}
