@@ -26,23 +26,14 @@ function Navbar({
                     id="id"
                     type="radio"
                     name="id"
-                    value="i"
-                    checked={selectedValue === 'i'}
-                    onChange={(event) => handleRedioChange(event.target.value)}
+                    value="i" // this is the value which will be picked up after radio button change
+                    checked={selectedValue === 'i'} // when this is true it show the id radio button in checked
+                    onChange={(event) => handleRedioChange(event.target.value)}  // this function is called whenever you change the radion button
                 />
                 <label for="id">Search By Id</label>
             </div>
             <nav>
                 <div className="navbar-inner">
-                    {/* <div className="leftBar">
-                        <div className="logo">
-                            <b>IMDB</b>
-                        </div>
-                        <div className="menuIcon">
-                            <ion-icon name="menu-outline"></ion-icon>
-                            <b>Menu</b>
-                        </div>
-                    </div> */}
                     <div className="menu">
                         <div className="imdb-logo">IMDb</div>
                         <div className="menu-icon">

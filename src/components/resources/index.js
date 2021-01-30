@@ -7,6 +7,7 @@ import CardBottom from "../card/CardBottom";
 import CardContent from "../card/CardContent";
 
 function Resources({ resources }) {
+  // de-structuring resources data
   const {
     Title,
     Actors,
