@@ -1,0 +1,16 @@
+.container {
+    margin: 1rem 24rem;
+    max-width: 100%;
+  }
+  .card {
+    display: grid;
+    box-shadow: 1px 1px 5px #ffffff;
+    background-color: white;
+  }
+
+/* poster */
+  .my-image {
+     width: 100%; 
+    height: 300px; 
+  }
+ 

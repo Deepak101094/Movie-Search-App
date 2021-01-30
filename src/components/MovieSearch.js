@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Resources from "./Resources";
-import Navbar from "./navbar";
+import Resources from "./resources";
+import Navbar from "./navbar/index";
 import Navbar2 from "./navbar/Navbar2";
 
 function MovieSearch() {
@@ -20,7 +20,7 @@ function MovieSearch() {
     let errors = "";
     if (!text) {
       isValid = false;
-      errors = "pls search your fav movie";
+      errors = "Please enter search text";
     }
     setInputError(errors);
     return isValid;
@@ -41,13 +41,11 @@ function MovieSearch() {
             },
           })
           .then((res) => {
-            // console.log(res);
             setResources(res?.data ?? {});
 
             if (res.status === 200) {
               setSuccess(true);
               setError("movie not found..");
-              //  console.log(error);
             }
           });
       } else {
@@ -63,7 +61,6 @@ function MovieSearch() {
             if (res.status === 200) {
               setSuccess(false);
               setError("Movie Not Found..");
-              //  console.log(error);
             }
           });
       }
@@ -79,7 +76,7 @@ function MovieSearch() {
     setSearchText("");
   };
 
-  // when user click on enter button then this function will call..!
+  // this function will be called whenever user click on the enter
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       clickHandler(searchText);
@@ -114,7 +111,7 @@ function MovieSearch() {
               )}{" "}
             </div>
           ) : (
-            <h2> search your movie </h2>
+            null
           )}
         </>
       )}
