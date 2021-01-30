@@ -64,16 +64,12 @@ function MovieSearch() {
             }
           });
       }
-    } else {
-      alert("something went wrong!");
     }
 
     setTimeout(() => {
       setLoader(false);
     }, 2000);
     setShowCard(true);
-
-    setSearchText("");
   };
 
   // this function will be called whenever user click on the enter
@@ -107,7 +103,7 @@ function MovieSearch() {
               {success ? (
                 <Resources resources={resources} />
               ) : (
-                <h2> {error} </h2>
+                <h2 style={{color:"red"}}> {error} </h2>
               )}{" "}
             </div>
           ) : (

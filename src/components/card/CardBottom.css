@@ -96,3 +96,10 @@
  .award a:hover {
   text-decoration: underline;
  }
+ .subtext a {
+   text-decoration: none;
+ }
+ .subtext a:hover {
+  color: #70579D;
+ text-decoration: underline;
+ }
