@@ -37,40 +37,43 @@ nav {
     padding: 0 12px;
   }
   
-  nav .leftBar {
+  .menu {
     display: flex;
     justify-content: space-between;
-    padding: 4px 16px;
     text-align: center;
-    align-items: center;
   }
-  nav .logo {
-    font-size: 20px;
-    font-weight: bolder;
+  .imdb-logo {
+    font-size: 22px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
     color: #000000;
-    border: 1px solid rgb(0, 0, 0, 0.75);
-    border-radius: 5px;
-    padding: 8px;
-    margin: 0 4px;
+    padding: 4px 6px;
     background-color: #f5c518;
+    border-radius: 3px;
+    margin-right: 5px;
   }
-  
-  nav .menuIcon {
+ 
+  .menu-icon {
+    color: #fff;
     display: flex;
     justify-content: space-between;
     text-align: center;
-    padding: 0.75rem;
-    position: relative;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 250ms;
+    padding: 5px 15px;
+    margin-left: 0px 5px;
   }
-  nav .menuIcon:hover {
-    background-color: darkgray;
+  .menu-icon:hover {
+    cursor: pointer;
+    background-color: grey;
+    border-radius: 5px;
+  }
+  .menu-text {
+    font-size: 15px;
+    font-weight: normal;
+    padding-top: 5px;
+    margin-left: 5px;
   }
   
+ 
   nav ol {
     display: flex;
     justify-content: space-between;
@@ -132,7 +135,7 @@ nav {
   .radio-button {
     text-align: center;
   }
-  .radio-button span {
+  .radio-button label {
     font-size: 1rem;
     color: #fff;
     margin-left: 5px;

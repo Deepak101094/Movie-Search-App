@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+//? library impot
 import axios from "axios";
+//?own components
 import Resources from "./resources";
 import Navbar from "./navbar/index";
 import Navbar2 from "./navbar/Navbar2";
+
 
 function MovieSearch() {
   const [searchText, setSearchText] = useState("");
@@ -25,6 +28,9 @@ function MovieSearch() {
     setInputError(errors);
     return isValid;
   };
+
+// this function will be called when user click on search icon or click on enter button.
+//  in this function we make api request to imdb sever and conditionly send params based on radio button,
 
   const clickHandler = (text) => {
     setLoader(true);
@@ -64,16 +70,12 @@ function MovieSearch() {
             }
           });
       }
-    } else {
-      alert("something went wrong!");
     }
 
     setTimeout(() => {
       setLoader(false);
     }, 2000);
     setShowCard(true);
-
-    setSearchText("");
   };
 
   // this function will be called whenever user click on the enter
@@ -96,7 +98,7 @@ function MovieSearch() {
       <Navbar2 />
 
       <p style={{ color: "red" }}> {inputError} </p>
-
+  {/* show loader when fetching */}
       {loader ? (
         <div className="loader">Loading</div>
       ) : (
@@ -104,10 +106,11 @@ function MovieSearch() {
           {showCard ? (
             <div>
               {" "}
+              {/* shows content when loader is stopped and success is true */}
               {success ? (
                 <Resources resources={resources} />
               ) : (
-                <h2> {error} </h2>
+                <h2 style={{color:"red"}}> {error} </h2>
               )}{" "}
             </div>
           ) : (

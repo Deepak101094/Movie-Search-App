@@ -13,6 +13,7 @@ function Navbar({
         <div>
             <div className="radio-button">
                 <input
+                    id="title"
                     type="radio"
                     name="title"
                     value="t" // this is the value which will be picked up after radio button change
@@ -20,25 +21,24 @@ function Navbar({
                     defaultChecked
                     onChange={(event) => handleRedioChange(event.target.value)} // this function is called whenever you change the radion button
                 />
-                <span>Search By Title </span>
+                <label for="title">Search By Title </label>
                 <input
+                    id="id"
                     type="radio"
                     name="id"
-                    value="i"
-                    checked={selectedValue === 'i'}
-                    onChange={(event) => handleRedioChange(event.target.value)}
+                    value="i" // this is the value which will be picked up after radio button change
+                    checked={selectedValue === 'i'} // when this is true it show the id radio button in checked
+                    onChange={(event) => handleRedioChange(event.target.value)}  // this function is called whenever you change the radion button
                 />
-                <span>Search By Id</span>
+                <label for="id">Search By Id</label>
             </div>
             <nav>
                 <div className="navbar-inner">
-                    <div className="leftBar">
-                        <div className="logo">
-                            <b>IMDB</b>
-                        </div>
-                        <div className="menuIcon">
-                            <ion-icon name="menu-outline"></ion-icon>
-                            <b>Menu</b>
+                    <div className="menu">
+                        <div className="imdb-logo">IMDb</div>
+                        <div className="menu-icon">
+                        <ion-icon name="menu-outline" style={{fontSize: "25px"}}></ion-icon>
+                        <div className="menu-text">Menu</div>
                         </div>
                     </div>
 
