@@ -14,15 +14,15 @@ function CardTop({
     <div className="top-section">
       <div className="sub-nav">
         <div className="left">
-          <a href="#">FULLCAST AND GREW </a>
+          <a href="/">FULLCAST AND GREW </a>
           <span>|</span>
-          <a href="#"> TRIVIA</a>
-          <span>|</span>
-
-          <a href="#">USER REVIEWS </a>
+          <a href="/"> TRIVIA</a>
           <span>|</span>
 
-          <a href="#">IMDbpro </a>
+          <a href="/">USER REVIEWS </a>
+          <span>|</span>
+
+          <a href="/">IMDbpro </a>
           <span>|</span>
 
           <span className="show_more">MORE</span>
@@ -71,8 +71,8 @@ function CardTop({
                 R<span>|</span>
                 <time> 2h 52min </time>
                 <span>|</span>
-                <a href="#"> {Genre} </a>,<span>|</span>
-                <a href="#">
+                <a href="/"> {Genre} </a>,<span>|</span>
+                <a href="/">
                   {" "}
                   {Released} ({Country})
                 </a>

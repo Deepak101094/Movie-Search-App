@@ -1,13 +1,11 @@
 import React from "react";
 import ReactImageFallback from "react-image-fallback";
-import DefaultImg from "../../imdblogo.webp";
 import "./Resources.css";
 import CardTop from "../card/CardTop";
 import CardBottom from "../card/CardBottom";
 import CardContent from "../card/CardContent";
 
 function Resources({ resources }) {
-  // de-structuring resources data
   const {
     Title,
     Actors,
@@ -34,20 +32,22 @@ function Resources({ resources }) {
           Year={Year}
           Country={Country}
         />
-        <ReactImageFallback
-          src={Poster}
-          fallbackImage={DefaultImg}
-          initialImage="loader.gif"
-          alt="cool image should be here"
-          className="my-image"
-        />
+        <div className="poster-image-container">
+          <ReactImageFallback
+            src={Poster}
+            fallbackImage="/images/imdb-logo.webp"
+            initialImage="loader.gif"
+            alt="Poster Image"
+            className="poster-image"
+          />
+        </div>
         <CardContent
           Plot={Plot}
           Director={Director}
           Writer={Writer}
           Actors={Actors}
         />
-        <CardBottom />       
+        <CardBottom />
       </div>
     </div>
   );

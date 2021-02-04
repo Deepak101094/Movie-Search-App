@@ -9,8 +9,13 @@
   }
 
 /* poster */
-  .my-image {
-     width: 100%; 
-    height: 300px; 
+  .poster-image-container {
+    width: auto;
+    height: 450px;
+  }
+
+  .poster-image {
+    width: 100%; 
+    height: 100%; 
   }
  

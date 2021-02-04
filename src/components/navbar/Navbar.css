@@ -133,10 +133,24 @@ nav {
     z-index: -1;
   }
   .radio-button {
-    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
+
+  .radio-button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .radio-button label {
     font-size: 1rem;
     color: #fff;
     margin-left: 5px;
+  }
+
+  .mr-5 {
+    margin-right: 15px;
   }
